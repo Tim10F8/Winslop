@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Winslop Log Inspector</title>
+
+    <style>
+      /* ---------- Winslop Utility Styles ---------- */
+      :root {
+        --bg: #f2f2f2;
+        --panel: #ffffff;
+        --text: #222;
+        --muted: #555;
+        --border: #bdbdbd;
+        --header: #3f3f3f;
+        --header2: #2f2f2f;
+        --btn: #2b6cb0;
+        --btnHover: #1e4e80;
+        --danger: #b00020;
+        --ok: #0b7a0b;
+        --linkBg: #4a4a4a;
+        --linkHover: #6a6a6a;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+          "Courier New", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--mono);
+      }
+
+      /* ---------- Header ---------- */
+      header {
+        background: linear-gradient(var(--header), var(--header2));
+        color: #fff;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #1f1f1f;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .badge {
+        font-size: 11px;
+        padding: 2px 6px;
+        border: 1px solid #777;
+        border-radius: 3px;
+        color: #ddd;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      /* ---------- Top-right Links ---------- */
+      .actions a {
+        color: #fff;
+        margin-left: 8px;
+        text-decoration: none;
+        font-size: 12px;
+        background: var(--linkBg);
+        padding: 6px 10px;
+        border-radius: 3px;
+        border: 1px solid #2a2a2a;
+        transition: background 0.15s;
+      }
+
+      .actions a:hover {
+        background: var(--linkHover);
+      }
+
+      /* ---------- Layout ---------- */
+      main {
+        padding: 18px 16px;
+        max-width: 920px;
+        margin: 0 auto;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 14px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+      }
+
+      .hint {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 0 0 10px 0;
+      }
+
+      .hint strong {
+        color: #000;
+      }
+
+      textarea {
+        width: 100%;
+        height: 220px;
+        font-family: var(--mono);
+        font-size: 12px;
+        padding: 12px;
+        border: 1px solid var(--border);
+        background: #fff;
+        border-radius: 6px;
+        resize: vertical;
+        outline: none;
+      }
+
+      textarea:focus {
+        border-color: #8aa7c7;
+        box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.15);
+      }
+
+      /* ---------- Buttons ---------- */
+      .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      button {
+        padding: 8px 10px;
+        font-size: 12px;
+        border: 1px solid #1b3e63;
+        background: var(--btn);
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.15s, transform 0.02s;
+      }
+
+      button:hover {
+        background: var(--btnHover);
+      }
+
+      button:active {
+        transform: translateY(1px);
+      }
+
+      button.secondary {
+        background: #5a5a5a;
+        border-color: #3a3a3a;
+      }
+
+      button.secondary:hover {
+        background: #4a4a4a;
+      }
+
+      /* ---------- Output ---------- */
+      .result {
+        margin-top: 14px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 12px;
+        min-height: 120px;
+        overflow: auto;
+      }
+
+      .section-title {
+        font-size: 12px;
+        margin: 0 0 8px 0;
+        color: #111;
+      }
+
+      .row {
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+        padding: 6px 0;
+        border-bottom: 1px dashed #e2e2e2;
+      }
+      .row:last-child {
+        border-bottom: none;
+      }
+
+      .tag {
+        font-size: 11px;
+        padding: 2px 6px;
+        border-radius: 3px;
+        border: 1px solid #cfcfcf;
+        background: #f6f6f6;
+        color: #333;
+        white-space: nowrap;
+      }
+      .tag.issue {
+        border-color: rgba(176, 0, 32, 0.35);
+        background: rgba(176, 0, 32, 0.08);
+        color: var(--danger);
+      }
+      .tag.ok {
+        border-color: rgba(11, 122, 11, 0.35);
+        background: rgba(11, 122, 11, 0.08);
+        color: var(--ok);
+      }
+      .tag.plugin {
+        border-color: rgba(43, 108, 176, 0.35);
+        background: rgba(43, 108, 176, 0.08);
+        color: #1e4e80;
+      }
+
+      .key {
+        color: #111;
+        font-weight: 600;
+      }
+      .value {
+        color: #333;
+        word-break: break-word;
+      }
+
+      /* ---------- Footer Note ---------- */
+      .footnote {
+        margin-top: 10px;
+        color: #666;
+        font-size: 11px;
+      }
+
+      /* ---------- Small screens ---------- */
+      @media (max-width: 520px) {
+        header h1 {
+          font-size: 14px;
+        }
+        .actions a {
+          padding: 5px 8px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ---------- HEADER ---------- -->
+    <header>
+      <h1>
+        Winslop Log Inspector
+        <span class="badge">local • deterministic</span>
+      </h1>
+      <div class="actions">
+        <a href="https://github.com/builtbybel" target="_blank" rel="noopener">GitHub</a>
+        <a
+          href="https://www.paypal.com/donate/?hosted_button_id=M9DW4VNKH9ECQ"
+          target="_blank"
+          rel="noopener"
+          >Donate</a
+        >
+        <a href="https://ko-fi.com/builtbybel" target="_blank" rel="noopener">Ko-fi</a>
+      </div>
+    </header>
+
+    <!-- ---------- MAIN ---------- -->
+    <main>
+      <div class="card">
+        <p class="hint">
+          <strong>How it works:</strong> paste a full Winslop log here and run an inspection.
+          No uploads. No cloud. This page only parses text in your browser.
+        </p>
+
+        <!-- ---------- INPUT ---------- -->
+        <textarea id="logInput" placeholder="Paste your Winslop log here..."></textarea>
+
+        <!-- ---------- BUTTONS ---------- -->
+        <div class="btn-group">
+          <button onclick="pasteResult()">Paste from clipboard</button>
+          <button onclick="analyzeLog()">Inspect log</button>
+          <button class="secondary" onclick="captureResult()">Screenshot</button>
+          <button class="secondary" onclick="shareResult()">Share</button>
+          <button class="secondary" onclick="shareOnTwitter()">Share on X</button>
+        </div>
+
+        <div class="footnote">
+          Tip: include the full scan section for best results (system + actions + errors).
+        </div>
+      </div>
+
+      <!-- ---------- OUTPUT ---------- -->
+      <div class="result" id="output">
+        <div class="section-title">Output</div>
+        <div class="row">
+          <span class="tag">idle</span>
+          <span class="value">Paste a log and click <span class="key">Inspect log</span>.</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- ---------- JS ---------- -->
+    <script src="js/main.js"></script>
+
+    <!-- ---------- html2canvas for screenshots ---------- -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </body>
+</html>
