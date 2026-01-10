@@ -142,10 +142,7 @@ Consider this stress relief with a UI.
 
 <details>
 <summary><strong>What is Winslop written in?</strong></summary>
-
-Winslop is written in **C#**.
-
-It started as a **C** experiment, then I forked my earlier project **CrapFixer** and continued from there, just much smaller and more focused.
+Started in C, then I forked CrapFixer and finished it in C# and continued from there, just much smaller and more focused.
 no glossy modern UI stack. No WinUI. No Mica. No "look how fancy we are" .
 Just tools.
 </details>
