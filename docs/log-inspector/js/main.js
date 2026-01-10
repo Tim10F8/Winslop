@@ -61,16 +61,25 @@ function shareResult() {
 }
 
 // Translation
-window.translateViaGoogle = async function translateViaGoogle() {
+window.translateViaGoogle = async function () {
   const text = document.getElementById("logInput").value || "";
-  if (!text.trim()) { alert("Paste a log first."); return; }
+  if (!text.trim()) {
+    alert("Paste a log first.");
+    return;
+  }
 
   try {
     await navigator.clipboard.writeText(text);
-    alert("Log copied. Paste it into Google Translate.");
-  } catch {}
+    alert("Log copied to clipboard. Paste it into Google Translate.");
+  } catch {
+    alert("Could not copy to clipboard. Copy manually, then paste into Google Translate.");
+  }
 
-  window.open("https://translate.google.com/?sl=auto&tl=de&op=translate", "_blank", "noopener");
+  window.open(
+    "https://translate.google.com/?sl=auto&tl=de&op=translate",
+    "_blank",
+    "noopener"
+  );
 };
 
 
@@ -99,4 +108,5 @@ function shareOnTwitter() {
     );
   });
 }
+
 
