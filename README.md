@@ -13,7 +13,12 @@ If this tool needs marketing, it probably shouldnt exist 😆
 
 To be clear:  
 **Windows is not bad.**  
-Don’t get me wrong.
+I actually like it.
+**But the direction of Windows 11 is.**  
+And I probably hate it more than I'm willing to admit.
+
+So I shipped this again.  
+Cheaper than therapy. Comes with toggles.
 
 **The slop is.**
 Winslop does exactly what the name suggests:
@@ -126,3 +131,14 @@ Because Microsoft said *“slop vs sophistication”* out loud.
 And because Windows isn’t bad.  
 The slop is.
 </details>
+
+
+
+<details>
+<summary><strong>Confession: I like Windows, but...</strong></summary>
+
+I just hate what Windows 11 keeps trying to become.  
+So I built the “stop doing that” button again.  
+Consider this stress relief with a UI.
+</details>
+
