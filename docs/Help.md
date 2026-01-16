@@ -61,7 +61,7 @@ Right-click any node in the **Windows** feature tree to open the context menu:
   Reverts the selected node back to its original/default state (if supported).  
   For plugins, this uses the plugin’s undo/restore command when available.
 
-- **Help (F1)**  
+- **Help**  
   Shows help/details for the selected node (what it does and any notes/warnings).
 
 
