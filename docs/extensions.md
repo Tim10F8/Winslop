@@ -1,6 +1,6 @@
-# 🆕 Setup Extensions — Technical Guide (Host · Options · Input)
+# 🆕 Tools / Extensions — Technical Guide (Host · Options · Input)
 
-The Setup Extensions system lets you drop PowerShell scripts into 
+The Extensions system lets you drop PowerShell scripts into 
 `.\scripts\` and have them show up automatically in the Setup Extensions page. Scripts declare behavior via simple header metadata.
 
 **This doc explains:**
