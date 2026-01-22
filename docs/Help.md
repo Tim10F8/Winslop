@@ -4,7 +4,7 @@
 
 Quick links:
 - Feature Reference: [features.md](features.md)
-- Plugins section in Feature Reference: [features.md#plugins](features.md#Plugins)
+- Plugins section in Feature Reference: [plugins](https://github.com/builtbybel/Winslop/blob/main/docs/features.md#plugins)
 - Extensions Reference: [extensions.md](extensions.md)
 
 ## Quick start
