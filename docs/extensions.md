@@ -1,7 +1,7 @@
 # 🆕 Tools / Extensions — Technical Guide (Host · Options · Input)
 
 The Extensions system lets you drop PowerShell scripts into 
-`.\scripts\` and have them show up automatically in the Setup Extensions page. Scripts declare behavior via simple header metadata.
+`.\scripts\` and have them show up automatically in the **Tools** tab/page. Scripts declare behavior via simple header metadata.
 
 **This doc explains:**
 - Which metadata keys are supported
