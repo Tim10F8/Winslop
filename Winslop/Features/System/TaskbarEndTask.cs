@@ -21,11 +21,10 @@ namespace Settings.System
             return "Enable End Task";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "Adds 'End Task' to the Windows 11 taskbar context menu, allowing you to directly kill unresponsive apps.";
+            return ID();
         }
-
         public override Task<bool> CheckFeature()
         {
             return Task.FromResult(Utils.IntEquals(keyName, valueName, recommendedValue));

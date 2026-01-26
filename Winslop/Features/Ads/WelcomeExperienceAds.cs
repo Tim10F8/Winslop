@@ -13,7 +13,10 @@ namespace Settings.Ads
 
         public override string ID() => "Disable Welcome Experience Ads";
 
-        public override string Info() => "This feature will disable ads in the welcome experience.";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override string GetFeatureDetails()
         {

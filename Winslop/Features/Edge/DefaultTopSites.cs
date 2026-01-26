@@ -18,7 +18,10 @@ namespace Settings.Edge
 
         public override string ID() => "Don't Show Sponsored links in new tab page";
 
-        public override string Info() => "Hide default top sites from the new tab page in Microsoft Edge";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override Task<bool> CheckFeature()
         {

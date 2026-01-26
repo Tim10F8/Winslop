@@ -1,5 +1,4 @@
-﻿using Winslop;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -8,6 +7,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winslop;
+using Winslop.Help;
 
 /// <summary>
 /// Provides functionality to load, execute, analyze, and fix external PowerShell-based plugins.
@@ -173,7 +174,7 @@ public static class PluginManager
     {
         if (node == null || node.Tag == null || !File.Exists(node.Tag.ToString()))
         {
-           // Logger.Log($"❌ Script file not found for plugin: {node?.Text}", LogLevel.Error);
+            // Logger.Log($"❌ Script file not found for plugin: {node?.Text}", LogLevel.Error);
             Logger.Log(new string('-', 50), LogLevel.Info);
         }
         else
@@ -352,47 +353,10 @@ public static class PluginManager
 
     public static bool ShowHelp(TreeNode node)
     {
-        string info = GetPluginHelpInfo(node);
-        if (!string.IsNullOrEmpty(info))
-        {
-            MessageBox.Show(info, $"Plugin Help: {node.Text}", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return true;
-        }
-        return false;
-    }
+        if (node == null) return false;
 
-    /// <summary>
-    /// Returns the help/info string from the plugin commands section for the given node.
-    /// Assumes node.Tag contains the script path as string.
-    /// </summary>
-    public static string GetPluginHelpInfo(TreeNode node)
-    {
-        if (node?.Tag is string path && File.Exists(path))
-        {
-            string content = File.ReadAllText(path);
-            // Simple parsing to find line starting with "Info=" under [Commands]
-            bool inCommandsSection = false;
-            foreach (var line in content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                var trimmed = line.Trim();
-
-                if (trimmed.StartsWith("[Commands]", StringComparison.OrdinalIgnoreCase))
-                {
-                    inCommandsSection = true;
-                    continue;
-                }
-                if (trimmed.StartsWith("[") && trimmed.EndsWith("]") && inCommandsSection)
-                {
-                    // Left commands section
-                    break;
-                }
-                if (inCommandsSection && trimmed.StartsWith("Info=", StringComparison.OrdinalIgnoreCase))
-                {
-                    return trimmed.Substring(5).Trim(); // Return the text after "Info="
-                }
-            }
-        }
-
-        return null; // No info found or invalid node
+        // Open the plugin section in features.md (anchor based on node.Text).
+        FeatureHelp.OpenUrl(FeatureHelp.GetPluginUrl(node.Text));
+        return true;
     }
 }

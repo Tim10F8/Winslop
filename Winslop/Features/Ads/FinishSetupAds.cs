@@ -13,7 +13,10 @@ namespace Settings.Ads
 
         public override string ID() => "Disable Finish Setup Ads";
 
-        public override string Info() => "This feature will disable the \"Lets finish setting up your device\" and other advertising.";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override string GetFeatureDetails()
         {

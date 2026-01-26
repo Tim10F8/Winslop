@@ -21,11 +21,10 @@ namespace Settings.Personalization
             return "Pin more Apps on start menu";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will allow pinning more Apps on start menu";
+            return ID();
         }
-
         public override Task<bool> CheckFeature()
         {
             return Task.FromResult(

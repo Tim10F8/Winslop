@@ -16,7 +16,10 @@ namespace Settings.Ads
 
         public override string ID() => "Disable Settings Ads";
 
-        public override string Info() => "This feature will disable ads in settings.";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override string GetFeatureDetails()
         {

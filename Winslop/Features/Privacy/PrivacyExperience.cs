@@ -13,7 +13,10 @@ namespace Settings.Privacy
 
         public override string ID() => "Disable Privacy Settings Experience at sign-in";
 
-        public override string Info() => "This feature will disable Privacy Settings Experience at sign-in.";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override string GetFeatureDetails()
         {

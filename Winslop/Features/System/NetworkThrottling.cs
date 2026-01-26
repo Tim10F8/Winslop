@@ -21,9 +21,9 @@ namespace Settings.System
             return "Disable Network Throttling";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "Disables the Windows network throttling mechanism to potentially improve performance for streaming, gaming, or real-time applications.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

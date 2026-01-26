@@ -21,9 +21,9 @@ namespace Settings.Gaming
             return "Disable Power Throttling";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will disable Power Throttling.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

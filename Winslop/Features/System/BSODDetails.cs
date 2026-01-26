@@ -8,13 +8,13 @@ namespace Settings.System
     internal class BSODDetails : FeatureBase
     {
         private const string keyName = @"HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CrashControl";
-        private const string valueName1 = "DisplayParameters";
+        private const string valueName = "DisplayParameters";
         private const string valueName2 = "DisableEmoticon";
         private const int recommendedValue = 1;
 
         public override string GetFeatureDetails()
         {
-            return $"{keyName} | Values: {valueName1}, {valueName2} | Recommended Value: {recommendedValue}";
+            return $"{keyName} | Values: {valueName}, {valueName2} | Recommended Value: {recommendedValue}";
         }
 
         public override string ID()
@@ -22,15 +22,15 @@ namespace Settings.System
             return "Show BSOD details instead of sad smiley";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This method displays the full classic BSOD with technical error details instead of the simplified sad face version.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()
         {
             return Task.FromResult(
-                Utils.IntEquals(keyName, valueName1, recommendedValue) &&
+                Utils.IntEquals(keyName, valueName, recommendedValue) &&
                 Utils.IntEquals(keyName, valueName2, recommendedValue)
             );
         }
@@ -39,7 +39,7 @@ namespace Settings.System
         {
             try
             {
-                Registry.SetValue(keyName, valueName1, recommendedValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, valueName, recommendedValue, RegistryValueKind.DWord);
                 Registry.SetValue(keyName, valueName2, recommendedValue, RegistryValueKind.DWord);
                 return Task.FromResult(true);
             }
@@ -55,7 +55,7 @@ namespace Settings.System
         {
             try
             {
-                Registry.SetValue(keyName, valueName1, 0, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, valueName, 0, RegistryValueKind.DWord);
                 Registry.SetValue(keyName, valueName2, 0, RegistryValueKind.DWord);
                 return true;
             }

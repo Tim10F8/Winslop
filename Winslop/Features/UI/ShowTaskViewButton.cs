@@ -21,9 +21,9 @@ namespace Settings.Personalization
             return "Hide Task view button on taskbar";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will hide the Task view button on taskbar";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

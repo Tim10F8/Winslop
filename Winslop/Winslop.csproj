@@ -63,6 +63,8 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppManager.cs" />
+    <Compile Include="Features\FeatureHelp.cs" />
+    <Compile Include="Helpers\DonationHelper.cs" />
     <Compile Include="IMainActions.cs" />
     <Compile Include="TreeSelectionTransfer.cs" />
     <Compile Include="Views\AppsView.cs">
@@ -216,7 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppIcon.ico" />
-    <None Include="AppLogo64.png" />
+    <None Include="AppLogo16.png" />
     <None Include="AppLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

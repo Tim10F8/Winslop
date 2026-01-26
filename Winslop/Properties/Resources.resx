@@ -117,11 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AppLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\AppLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PredefinedApps" xml:space="preserve">
     <value>Solitaire,CandyCrush,Netflix, Facebook,Twitter,Instagram,TikTok,Spotify, Skype,OneNote,OneDrive, Mail, Calendar, Weather,News,Maps, Groove, Movies,TV, Phone, Camera,Feedback,FeedbackHub, GetHelp,GetStarted,Messaging,Office,Paint3D,Print3D,StickyNotes,Wallet,YourPhone,3DViewer,Alarms,VoiceRecorder,ToDo,Whiteboard,ZuneMusic,ZuneVideo,3DViewer, DevHome, Copilot,MicrosoftPCManager</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AppLogo64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\AppLogo64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AppLogo16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\AppLogo16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

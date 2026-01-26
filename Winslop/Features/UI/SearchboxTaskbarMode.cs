@@ -21,9 +21,9 @@ namespace Settings.Personalization
             return "Hide search box on taskbar";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will hide search box on taskbar";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

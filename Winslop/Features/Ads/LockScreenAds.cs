@@ -14,7 +14,10 @@ namespace Settings.Ads
 
         public override string ID() => "Disable Lock Screen Tips and Ads";
 
-        public override string Info() => "This feature will disable tips and ads on the lock screen.";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override string GetFeatureDetails()
         {

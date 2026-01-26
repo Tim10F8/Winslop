@@ -27,9 +27,9 @@ namespace Settings.System
             return "Disable Hibernation";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "Hibernation is mostly useful for laptops to save battery by storing your session before shutdown. On desktops, it is rarely needed and uses disk space. Disabling it frees resources and avoids confusion by hiding the Hibernate option in the power menu.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

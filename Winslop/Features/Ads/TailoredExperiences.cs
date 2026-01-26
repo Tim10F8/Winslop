@@ -21,9 +21,9 @@ namespace Settings.Ads
             return "Disable Tailored experiences";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "Tailored Experiences allows Microsoft to get information from you to deliver personalized tips, ads, and recommendations. Many people would call this telemetry, or even spying.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

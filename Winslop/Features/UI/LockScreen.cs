@@ -21,9 +21,9 @@ namespace Settings.Personalization
             return "Don't use personalized lock screen";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will disable the personalized lock screen.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

@@ -16,9 +16,12 @@ namespace Settings.Edge
             return $"{keyName} | Value: {valueName} | Recommended Value: {recommendedValue}";
         }
 
-        public override string ID() => "Don't Allow to Import of data from other browsers on each launch";
+        public override string ID() => "Don't import data from other browsers at startup";
 
-        public override string Info() => "Allow import of data from other browsers on each Microsoft Edge launch";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override Task<bool> CheckFeature()
         {

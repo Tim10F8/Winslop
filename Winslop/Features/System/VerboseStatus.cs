@@ -21,9 +21,9 @@ namespace Settings.System
             return "Enable Verbose Logon status messages";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This method allows you to see what processes are hanging when shutting down and turning on the machine.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

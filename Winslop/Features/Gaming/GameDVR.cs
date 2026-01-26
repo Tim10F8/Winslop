@@ -26,10 +26,11 @@ namespace Settings.Gaming
             return "Disable Game DVR";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will disable Game DVR.";
+            return ID();
         }
+
 
         public override Task<bool> CheckFeature()
         {

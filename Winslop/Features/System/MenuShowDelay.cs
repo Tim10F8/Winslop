@@ -21,9 +21,9 @@ namespace Settings.System
             return "Speed Up Menu Show Delay";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "Speeds up the appearance of menus and submenus by lowering the default delay. This improves the perceived responsiveness of the UI.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

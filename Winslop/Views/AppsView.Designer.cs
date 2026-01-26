@@ -36,7 +36,7 @@
             this.checkedListBoxApps.BackColor = System.Drawing.Color.White;
             this.checkedListBoxApps.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBoxApps.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBoxApps.Font = new System.Drawing.Font("Segoe UI Variable Small Semilig", 9.5F);
+            this.checkedListBoxApps.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.checkedListBoxApps.FormattingEnabled = true;
             this.checkedListBoxApps.Items.AddRange(new object[] {
             "No inspection yet"});

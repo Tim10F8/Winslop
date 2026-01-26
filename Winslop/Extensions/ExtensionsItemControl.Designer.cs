@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelDescription = new System.Windows.Forms.Label();
             this.labelIcon = new System.Windows.Forms.Label();
@@ -37,7 +36,6 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.comboOptions = new System.Windows.Forms.ComboBox();
             this.textInput = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.linkPoweredBy = new System.Windows.Forms.LinkLabel();
             this.btnUninstall = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -47,11 +45,11 @@
             this.labelTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTitle.AutoEllipsis = true;
-            this.labelTitle.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold);
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.Black;
             this.labelTitle.Location = new System.Drawing.Point(50, 11);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(237, 18);
+            this.labelTitle.Size = new System.Drawing.Size(152, 18);
             this.labelTitle.TabIndex = 23;
             this.labelTitle.Text = "Title";
             this.labelTitle.UseCompatibleTextRendering = true;
@@ -61,11 +59,11 @@
             this.labelDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelDescription.AutoEllipsis = true;
-            this.labelDescription.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescription.ForeColor = System.Drawing.Color.Black;
             this.labelDescription.Location = new System.Drawing.Point(17, 92);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(396, 38);
+            this.labelDescription.Size = new System.Drawing.Size(308, 38);
             this.labelDescription.TabIndex = 24;
             this.labelDescription.Text = "Description";
             this.labelDescription.UseCompatibleTextRendering = true;
@@ -83,18 +81,19 @@
             // 
             // btnRun
             // 
+            this.btnRun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
             this.btnRun.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRun.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
             this.btnRun.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(197)))));
             this.btnRun.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(197)))));
             this.btnRun.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnRun.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRun.ForeColor = System.Drawing.Color.White;
-            this.btnRun.Location = new System.Drawing.Point(305, 23);
+            this.btnRun.Location = new System.Drawing.Point(220, 23);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(97, 23);
-            this.btnRun.TabIndex = 26;
+            this.btnRun.TabIndex = 1;
             this.btnRun.Text = "Run";
             this.btnRun.UseCompatibleTextRendering = true;
             this.btnRun.UseVisualStyleBackColor = false;
@@ -108,7 +107,7 @@
             this.labelStatus.Location = new System.Drawing.Point(0, 186);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.labelStatus.Size = new System.Drawing.Size(420, 17);
+            this.labelStatus.Size = new System.Drawing.Size(335, 17);
             this.labelStatus.TabIndex = 27;
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -117,65 +116,67 @@
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.progressBar.Location = new System.Drawing.Point(0, 0);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(420, 5);
+            this.progressBar.Size = new System.Drawing.Size(335, 5);
             this.progressBar.TabIndex = 28;
             // 
             // comboOptions
             // 
+            this.comboOptions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(222)))), ((int)(((byte)(218)))));
             this.comboOptions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboOptions.Font = new System.Drawing.Font("Segoe UI Variable Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboOptions.FormattingEnabled = true;
             this.comboOptions.Location = new System.Drawing.Point(17, 159);
             this.comboOptions.Name = "comboOptions";
-            this.comboOptions.Size = new System.Drawing.Size(396, 25);
+            this.comboOptions.Size = new System.Drawing.Size(311, 25);
             this.comboOptions.TabIndex = 29;
+            this.comboOptions.TabStop = false;
             // 
             // textInput
             // 
+            this.textInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textInput.Font = new System.Drawing.Font("Segoe UI Variable Small", 8.25F);
             this.textInput.Location = new System.Drawing.Point(17, 133);
             this.textInput.Name = "textInput";
-            this.textInput.Size = new System.Drawing.Size(393, 22);
+            this.textInput.Size = new System.Drawing.Size(308, 22);
             this.textInput.TabIndex = 30;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.textInput.TabStop = false;
             // 
             // linkPoweredBy
             // 
             this.linkPoweredBy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.linkPoweredBy.AutoEllipsis = true;
-            this.linkPoweredBy.Font = new System.Drawing.Font("Segoe UI Variable Small", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkPoweredBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkPoweredBy.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkPoweredBy.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(6)))), ((int)(((byte)(124)))));
             this.linkPoweredBy.Location = new System.Drawing.Point(50, 30);
             this.linkPoweredBy.Name = "linkPoweredBy";
-            this.linkPoweredBy.Size = new System.Drawing.Size(237, 15);
+            this.linkPoweredBy.Size = new System.Drawing.Size(152, 15);
             this.linkPoweredBy.TabIndex = 31;
             this.linkPoweredBy.TabStop = true;
-            this.linkPoweredBy.Text = "linkLabel1";
+            this.linkPoweredBy.Text = "Publisher";
             this.linkPoweredBy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPoweredBy_LinkClicked);
             // 
             // btnUninstall
             // 
             this.btnUninstall.AutoEllipsis = true;
-            this.btnUninstall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(6)))), ((int)(((byte)(161)))));
+            this.btnUninstall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(221)))), ((int)(((byte)(251)))));
             this.btnUninstall.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUninstall.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(174)))), ((int)(((byte)(205)))));
+            this.btnUninstall.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(221)))), ((int)(((byte)(251)))));
             this.btnUninstall.FlatAppearance.BorderSize = 0;
-            this.btnUninstall.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(14)))), ((int)(((byte)(123)))));
-            this.btnUninstall.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(14)))), ((int)(((byte)(123)))));
+            this.btnUninstall.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(166)))), ((int)(((byte)(215)))));
+            this.btnUninstall.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(166)))), ((int)(((byte)(215)))));
             this.btnUninstall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUninstall.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUninstall.ForeColor = System.Drawing.Color.White;
+            this.btnUninstall.ForeColor = System.Drawing.Color.Black;
             this.btnUninstall.Location = new System.Drawing.Point(50, 51);
             this.btnUninstall.Name = "btnUninstall";
             this.btnUninstall.Size = new System.Drawing.Size(97, 20);
             this.btnUninstall.TabIndex = 32;
+            this.btnUninstall.TabStop = false;
             this.btnUninstall.Text = "Uninstall";
             this.btnUninstall.UseCompatibleTextRendering = true;
             this.btnUninstall.UseVisualStyleBackColor = false;
@@ -185,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.btnUninstall);
             this.Controls.Add(this.linkPoweredBy);
             this.Controls.Add(this.textInput);
@@ -197,7 +198,7 @@
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelTitle);
             this.Name = "ExtensionsItemControl";
-            this.Size = new System.Drawing.Size(420, 203);
+            this.Size = new System.Drawing.Size(335, 203);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,7 +214,6 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.ComboBox comboOptions;
         private System.Windows.Forms.TextBox textInput;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.LinkLabel linkPoweredBy;
         private System.Windows.Forms.Button btnUninstall;
     }

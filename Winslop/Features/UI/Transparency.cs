@@ -22,11 +22,10 @@ namespace Settings.Personalization
             return "Disable Transparency Effects";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature disables transparency effects for Start menu, taskbar, and other surfaces.";
+            return ID();
         }
-
         public override Task<bool> CheckFeature()
         {
             return Task.FromResult(

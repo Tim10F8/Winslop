@@ -63,9 +63,19 @@ namespace Winslop.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap AppLogo64 {
+        internal static System.Drawing.Bitmap AppLogo {
             get {
-                object obj = ResourceManager.GetObject("AppLogo64", resourceCulture);
+                object obj = ResourceManager.GetObject("AppLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AppLogo16 {
+            get {
+                object obj = ResourceManager.GetObject("AppLogo16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

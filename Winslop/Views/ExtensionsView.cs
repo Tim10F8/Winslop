@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Winslop.Extensions
 {
-    public partial class ExtensionsView : UserControl, ISearchable
+    public partial class ExtensionsView : UserControl, ISearchable, IView
     {
         private ExtensionsCategory _category; // The category this view represents
         private readonly List<ExtensionsDefinition> _allTools = new List<ExtensionsDefinition>();
@@ -34,9 +33,6 @@ namespace Winslop.Extensions
             comboFilter.SelectedIndexChanged += comboFilter_SelectedIndexChanged;
 
             LoadTools();
-
-            // Set icons for buttons using Segoe MDL2 Assets glyphs
-            btnMoreOptions.Text = "\uE712"; // More options icon
         }
 
         private async void LoadTools()
@@ -238,11 +234,8 @@ namespace Winslop.Extensions
         {
             flowLayoutPanelTools.Controls.Clear();
             LoadTools();
-        }
 
-        private void btnMoreOptions_Click(object sender, EventArgs e)
-        {
-            contextDropDown.Show(btnMoreOptions, new Point(0, btnMoreOptions.Height));
+            Logger.Clear(); // Clear log output when refreshing the view
         }
 
         private void comboFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -257,21 +250,6 @@ namespace Winslop.Extensions
             }
 
             LoadTools(); // re-render based on new category
-        }
-
-        private void toolStripMenuWriteExtension_Click(object sender, EventArgs e)
-        {
-            ExtensionsHelper.OpenExtensionGuide();
-        }
-
-        private void toolStripMenuExtensionDirectory_Click(object sender, EventArgs e)
-        {
-            ExtensionsHelper.OpenScriptsFolder(this);
-        }
-
-        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RefreshView();
         }
 
         // ---------------- SearchInterface ----------------

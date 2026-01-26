@@ -389,14 +389,14 @@ namespace Winslop.Views
         {
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
             {
-                FileName = "https://github.com/builtbybel/CrapFixer/blob/main/plugins/plugins_manifest.txt",
+                FileName = "https://github.com/builtbybel/Winslop/blob/main/plugins/plugins_manifest.txt",
                 UseShellExecute = true
             });
         }
 
         private void linkPluginUsage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/builtbybel/CrapFixer/blob/main/plugins/DemoPluginPack.ps1");
+            Process.Start("https://github.com/builtbybel/Winslop/blob/main/docs/plugins.md");
         }
     }
 }

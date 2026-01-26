@@ -21,9 +21,9 @@ namespace Settings.Privacy
             return "Disable location tracking";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "Disable location tracking (prevents Windows from accessing your location)";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

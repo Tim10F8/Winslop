@@ -1,0 +1,66 @@
+[ChrisTitusApp]
+description=Chris Titus Tech's Windows Utility - Install Programs, Tweaks, Fixes, and Updates
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/ChrisTitusApp.ps1
+
+[Create Restore Point]
+description=Creates a system restore point to allow recovery before major changes are applied.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Create Restore Point.ps1
+
+[Remove default apps]
+description=Removes preinstalled Windows default apps to declutter the system.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Remove default apps.ps1
+
+[Remove Windows AI]
+description=Disables and removes AI-related features and integrations in Windows.
+Developer: zoicware | Web: https://github.com/zoicware/RemoveWindowsAI
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Remove Windows AI.ps1
+
+[Restart Explorer]
+description=Restarts the Windows Explorer process to apply changes or recover from crashes.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Restart Explorer.ps1
+
+[Restore all built-in apps]
+description=Restores all removed default Windows apps to their original state.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Restore all built-in apps.ps1
+
+[Uninstall OneDrive]
+description=Completely uninstalls Microsoft OneDrive from the system.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Uninstall OneDrive.ps1
+
+[CFEnhancer]
+description=Enhanced bloatware detection list used instead of the internal signature. If present in the plugins folder, it overrides the built-in detection mechanism.
+Use * or *.* to show all apps on your system.
+Use "!"AppName to whitelist apps (exclude from detection).
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/CFEnhancer.txt
+
+[Disable Snap Assist Flyout (NX)]
+description=Disables the Snap Assist feature when hovering over window maximize buttons. Can be re-enabled anytime.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Disable Snap Assist Flyout (NX).ps1
+
+[File Extensions Visibility (NX)]
+description=Hides or shows known file extensions and super hidden files in File Explorer. Changes can be reversed.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/File Extensions Visibility (NX).ps1
+
+[Shutdown Time (NX)]
+description=Adjusts shutdown wait times for apps and background processes to speed up shutdown. Fully reversible.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Shutdown Time (NX).ps1
+
+[User Account Control (NX)]
+description=Enables or disables User Account Control (UAC). Recommended for advanced users only. Can be reverted anytime.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/User Account Control (NX).ps1
+
+[Remove Edit with Clipchamp (NX)]
+description=Removes the 'Edit with Clipchamp' option from the context menu for media files.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Remove Edit with Clipchamp (NX).ps1
+
+[Remove Edit with Notepad (NX)]
+description=Removes the 'Edit in Notepad' option from the context menu for supported file types.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Remove Edit with Notepad (NX).ps1
+
+[Remove Edit with Photos (NX)]
+description=Removes the 'Edit with Photos' option from the context menu for image files.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Remove Edit with Photos (NX).ps1
+
+[Remove Ask Copilot (NX)]
+description=Removes the 'Ask Copilot' option from the context menu for files and folders.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Remove Ask Copilot (NX).ps1

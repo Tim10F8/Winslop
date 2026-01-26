@@ -10,7 +10,7 @@ namespace Settings.UI
     /// Only available on Copilot+ PCs running Windows 11 24H2 or newer.
     /// Requires a PC with an NPU (Neural Processing Unit).
     /// </summary>
-    internal class ClickToDo: FeatureBase
+    internal class ClickToDo : FeatureBase
     {
         private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\Shell\ClickToDo";
         private const string valueName = "DisableClickToDo";
@@ -22,16 +22,14 @@ namespace Settings.UI
                    "Note: This setting only applies on Copilot+ PCs with Windows 11 24H2 or newer.";
         }
 
-
-
         public override string ID()
         {
             return "Disable Click to Do (Only Copilot+ PCs)";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "Disables Click to Do entirely, including its context menu entry which uses on-device AI to suggest actions based on screen content. Only available on Copilot+ PCs with Windows 11 24H2 or newer.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

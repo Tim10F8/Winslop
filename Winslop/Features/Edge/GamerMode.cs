@@ -18,7 +18,10 @@ namespace Settings.Edge
 
         public override string ID() => "Disable Gamer Mode";
 
-        public override string Info() => "Microsoft Edge Gamer Mode allows gamers to personalize their browser with gaming themes and gives them the option of enabling Efficiency Mode for PC gaming, the Gaming feed on new tabs, sidebar apps for gamers, and more";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override Task<bool> CheckFeature()
         {

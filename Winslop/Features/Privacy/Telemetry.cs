@@ -12,11 +12,14 @@ namespace Settings.Privacy
 
         public override string ID() => "Turn off Telemetry data collection";
 
-        public override string Info() => "This feature will turn off telemetry data collection and prevent the data from being sent to Microsoft.";
-
         public override string GetFeatureDetails()
         {
             return $"{dataCollection} | {diagTrack}";
+        }
+
+        public override string HelpAnchorId()
+        {
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

@@ -13,7 +13,10 @@ namespace Settings.Ads
 
         public override string ID() => "Disable General Tips and Ads";
 
-        public override string Info() => "This feature will disable general tips and ads.";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override string GetFeatureDetails()
         {

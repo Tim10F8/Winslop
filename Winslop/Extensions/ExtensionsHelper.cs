@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
+
+// DEPRECATED: This class is no longer used but kept for reference.
 namespace Winslop.Extensions
 {
     /// <summary>
@@ -36,7 +38,7 @@ namespace Winslop.Extensions
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://github.com/builtbybel/Flyoobe/blob/main/Flyoobe.Extensions/Write-an-Extension.md",
+                FileName = "https://github.com/builtbybel/Winslop/blob/main/docs/extensions.md",
                 UseShellExecute = true
             });
         }

@@ -22,11 +22,10 @@ namespace Settings.Personalization
             return "Align Start button to left";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will align the Start button to left";
+            return ID();
         }
-
         public override Task<bool> CheckFeature()
         {
             return Task.FromResult(

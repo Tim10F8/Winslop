@@ -11,6 +11,11 @@ namespace Settings.UI
         private const string valueName = "BingSearchEnabled";
         private const int recommendedValue = 0;
 
+        public override string HelpAnchorId()
+        {
+            return DisableBingSearch.valueName; 
+        }
+
         public override string GetFeatureDetails()
         {
             return $"{keyName} | Value: {valueName} | Recommended Value: {recommendedValue}";
@@ -21,10 +26,6 @@ namespace Settings.UI
             return "Disable Bing Search";
         }
 
-        public override string Info()
-        {
-            return "This feature disables Bing integration in Windows Search.";
-        }
 
         public override Task<bool> CheckFeature()
         {

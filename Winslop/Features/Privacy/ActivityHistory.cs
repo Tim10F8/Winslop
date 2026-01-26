@@ -21,10 +21,11 @@ namespace Settings.Privacy
             return "Disable activity history";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "Disable activity history (prevents Windows from tracking and storing your activity)";
+            return ID();
         }
+
 
         public override Task<bool> CheckFeature()
         {

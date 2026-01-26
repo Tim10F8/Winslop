@@ -21,9 +21,9 @@ namespace Settings.System
             return "Speed Up Shutdown Time";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature reduces the WaitToKillServiceTimeout value, which speeds up the shutdown process by reducing the time Windows waits for services to stop.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

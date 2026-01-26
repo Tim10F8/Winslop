@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Management.Automation;
 using System.Windows.Forms;
 using Winslop.Extensions;
 using Winslop.Views;
@@ -41,18 +41,21 @@ namespace Winslop
 
         private async void MainForm_Shown(object sender, EventArgs e)
         {
-            btnMenu.Text = "\uE700"; // menu icon
-            btnAbout.Text = "\uEB52"; // heart icon
+            btnAbout.Text = "\uEB52"; // footer heart icon
 
             // Menu navigation: just select tabs
             //toolStripMenuTools.Click += (s, _) => tabControl.SelectedTab = Windows;
-            btnAbout.Click += (s, _) => new AboutForm().ShowDialog();
+            toolStripMenuHelp.Click += (s, _) => Process.Start("https://github.com/builtbybel/Winslop/blob/main/docs/Help.md");
+            EventHandler showAbout = (_, __) => new AboutForm().ShowDialog();
+            btnAbout.Click += showAbout;
+            toolStripMenuAbout.Click += showAbout;
+            toolStripMenuUpdate.Click += (s, _) => Process.Start($"https://builtbybel.github.io/Winslop/update.html?version={Program.GetAppVersion()}");
 
             // Initialize log actions controller
             _logActionsController = new LogActionsController(comboLogActions, _logActions);
 
             // Set app version information
-            toolStripMenuAbout.Text = $"Release {Program.GetAppVersion()}";
+            lblRightHeader.Text = $"{Program.GetAppVersion()}";
             // Set Windows version information
             var windowsTab = tabControl.TabPages["Windows"];
             if (windowsTab == null)
@@ -83,6 +86,8 @@ namespace Winslop
 
                     // Initialize feature tree once
                     _featureView.InitializeAppState();
+                    // Give LogActions access to the feature tree (for "Log: checked features", etc.)
+                    _logActions.SetFeaturesTreeProvider(() => _featureView.Tree);
                 }
             }
             else if (ReferenceEquals(tab, Apps))
@@ -136,22 +141,31 @@ namespace Winslop
 
         private async void btnAnalyze_Click(object sender, EventArgs e)
         {
+            //var actions = CurrentActions();
+            //if (actions != null)
+            //    await actions.AnalyzeAsync();
             var actions = CurrentActions();
-            if (actions != null)
-                await actions.AnalyzeAsync();
+            if (actions == null) return;
+
+            btnAnalyze.Enabled = btnFix.Enabled = false;
+            try { await actions.AnalyzeAsync(); }
+            finally { btnAnalyze.Enabled = btnFix.Enabled = true; }
         }
 
         private async void btnFix_Click(object sender, EventArgs e)
         {
             var actions = CurrentActions();
-            if (actions != null)
-                await actions.FixAsync();
+            if (actions == null) return;
+
+            btnAnalyze.Enabled = btnFix.Enabled = false;
+            try { await actions.FixAsync(); }
+            finally { btnAnalyze.Enabled = btnFix.Enabled = true; }
         }
 
         private void toolStripMenuRestore_Click(object sender, EventArgs e)
         {
             EnsureTabLoaded(Windows);
-            _featureView?.RestoreCheckedWithConfirmation();
+            _featureView?.RestoreSelection();
         }
 
         // Toggle selection in the current view
@@ -183,7 +197,6 @@ namespace Winslop
                 dlg.ShowIcon = false;
                 dlg.ClientSize = new Size(500, 500);
                 var view = new PluginsView { Dock = DockStyle.Fill };
-
                 dlg.Controls.Add(view);
                 dlg.ShowDialog(this);
             }
@@ -215,16 +228,42 @@ namespace Winslop
 
         private void TryAutoLoadSelection()
         {
-            // Look for "selection.sel" next to the executable
+            // Look for any *.sel file next to the executable
             string dir = AppDomain.CurrentDomain.BaseDirectory;
-            string path = Path.Combine(dir, "winslop-selection.sel");
+            var selFiles = Directory.GetFiles(dir, "*.sel");
 
-            if (!File.Exists(path))
+            if (selFiles.Length == 0)
                 return;
 
-            // Optional: Ask user (so its always opt-in)
+            string path;
+
+            if (selFiles.Length == 1)
+            {
+                // Exactly one file found > use it
+                path = selFiles[0];
+            }
+            else
+            {
+                // Multiple files found > let the user pick one
+                using (var dlg = new OpenFileDialog())
+                {
+                    dlg.Title = "Select a selection file to load";
+                    dlg.InitialDirectory = dir;
+                    dlg.Filter = "Selection files (*.sel)|*.sel|All files (*.*)|*.*";
+                    dlg.Multiselect = false;
+
+                    if (dlg.ShowDialog(this) != DialogResult.OK)
+                        return;
+
+                    path = dlg.FileName;
+                }
+            }
+
+            string fileName = Path.GetFileName(path);
+
+            // Always ask (opt-in)
             var result = MessageBox.Show(
-                "A selection file was found next to the app:\n\nselection.sel\n\nLoad it now?",
+                $"A selection file was found next to the app:\n\n{fileName}\n\nLoad it now?",
                 "Load selection",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
@@ -232,12 +271,13 @@ namespace Winslop
             if (result != DialogResult.Yes)
                 return;
 
-            // Ensure FeaturesView exists (lazy load)
+            // Ensure FeaturesView exists
             EnsureTabLoaded(Windows);
 
             // Import and show the result immediately
             int checkedCount = _featureView.ImportSelection(path);
-            Logger.Log($"✅ Loaded selection.sel ({checkedCount} items checked).", LogLevel.Info);
+
+            Logger.Log($"✅ Loaded {fileName} ({checkedCount} items checked).", LogLevel.Info);
 
             tabControl.SelectedTab = Windows;
         }
@@ -278,6 +318,23 @@ namespace Winslop
 
                 _featureView.ExportSelection(dlg.FileName);
                 Logger.Log($"✅ Selection exported: {dlg.FileName}", LogLevel.Info);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            var tab = tabControl.SelectedTab;
+            if (tab == null || tab.Controls.Count == 0)
+                return;
+
+            (tab.Controls[0] as IView)?.RefreshView();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!DonationHelper.HasDonated())
+            {
+                DonationHelper.ShowDonationPrompt();
             }
         }
     }

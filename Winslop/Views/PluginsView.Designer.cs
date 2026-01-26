@@ -60,8 +60,10 @@
             this.btnDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDescription.AutoEllipsis = true;
-            this.btnDescription.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(173)))), ((int)(((byte)(183)))));
             this.btnDescription.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescription.ForeColor = System.Drawing.Color.Black;
             this.btnDescription.Location = new System.Drawing.Point(15, 10);
             this.btnDescription.Name = "btnDescription";
             this.btnDescription.Padding = new System.Windows.Forms.Padding(20, 0, 100, 0);
@@ -70,7 +72,7 @@
             this.btnDescription.TabStop = false;
             this.btnDescription.Text = "Slop Feeds (App restart needed after install)";
             this.btnDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDescription.UseVisualStyleBackColor = true;
+            this.btnDescription.UseVisualStyleBackColor = false;
             // 
             // progressBarDownload
             // 
@@ -152,7 +154,7 @@
             // 
             this.linkPluginUsage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkPluginUsage.AutoSize = true;
-            this.linkPluginUsage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.linkPluginUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(173)))), ((int)(((byte)(183)))));
             this.linkPluginUsage.Location = new System.Drawing.Point(535, 16);
             this.linkPluginUsage.Name = "linkPluginUsage";
             this.linkPluginUsage.Size = new System.Drawing.Size(67, 13);

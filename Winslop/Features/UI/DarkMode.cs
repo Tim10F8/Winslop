@@ -1,7 +1,8 @@
 ﻿using Microsoft.Win32;
+using Settings.UI;
 using System;
-using Winslop;
 using System.Threading.Tasks;
+using Winslop;
 
 namespace Settings.Personalization
 {
@@ -15,15 +16,14 @@ namespace Settings.Personalization
         {
             return $"{keyName} | Value: {valueName} | Recommended: {recommendedValue} (Dark mode – preferred for a modern look, but up to you)";
         }
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override string ID()
         {
             return "Enable Dark Mode for Apps";
-        }
-
-        public override string Info()
-        {
-            return "This feature enables Dark Mode for apps in Windows 11.";
         }
 
         public override Task<bool> CheckFeature()
@@ -80,9 +80,9 @@ namespace Settings.Personalization
             return "Enable Dark Mode for System";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature enables Dark Mode for Windows system UI (e.g., taskbar, start menu).";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

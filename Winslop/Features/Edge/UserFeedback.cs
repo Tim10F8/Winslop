@@ -18,7 +18,10 @@ namespace Settings.Edge
 
         public override string ID() => "Don't Submit user feedback option";
 
-        public override string Info() => "Allow the submission of feedback, suggestions, or customer surveys, as well as reporting issues with the browser";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override Task<bool> CheckFeature()
         {

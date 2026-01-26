@@ -21,11 +21,10 @@ namespace Settings.System
             return "Optimize System Responsiveness";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "Enhances system responsiveness by prioritizing CPU resources for foreground tasks, improving performance during active use.";
+            return ID();
         }
-
         public override Task<bool> CheckFeature()
         {
             return Task.FromResult(Utils.IntEquals(keyName, valueName, recommendedValue));

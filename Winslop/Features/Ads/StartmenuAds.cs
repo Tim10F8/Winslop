@@ -21,10 +21,11 @@ namespace Settings.Ads
             return "Disable Start menu Ads";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will disable ads in the start menu.";
+            return ID();
         }
+
 
         public override Task<bool> CheckFeature()
         {

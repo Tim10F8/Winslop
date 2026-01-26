@@ -14,7 +14,10 @@ namespace Settings.Issues
 
         public override string ID() => "Basic Disk Cleanup";
 
-        public override string Info() => "Deletes all temporary files from the user's Temp folder. Then, the built-in Disk Cleanup utility (cleanmgr) is run.";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override Task<bool> CheckFeature()
         {

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winslop.Help;
 
 namespace Winslop
 {
@@ -45,7 +46,7 @@ namespace Winslop
             foreach (TreeNode root in tree.Nodes)
             {
                 root.NodeFont = new Font(tree.Font, FontStyle.Bold);
-                root.ForeColor = Color.FromArgb(0,6,124); // category color
+                root.ForeColor = Color.Black; // category color
             }
 
             tree.ExpandAll(); // expand all nodes
@@ -62,7 +63,6 @@ namespace Winslop
                 tree.TopNode = tree.Nodes[0];
             }));
         }
-
 
         /// <summary>
         /// Recursively adds a FeatureNode and its children into the TreeView.
@@ -292,49 +292,34 @@ namespace Winslop
         }
 
         /// <summary>
-        /// Displays help information for the selected feature or plugin.
-        /// If a feature is selected, also offers to search online.
+        /// Opens help for the selected feature or plugin.
+        /// Features: opens GitHub documentation.
+        /// Plugins: uses PluginManager.ShowHelp(node).
         /// </summary>
-        public static void ShowHelp(TreeNode node)
+        public static bool ShowHelp(TreeNode node)
         {
-            // Show help for features
-            if (node?.Tag is FeatureNode fn && fn.Feature != null)
+            if (node == null) return false;
+
+            try
             {
-                string info = fn.Feature.Info();
-                MessageBox.Show(
-                    !string.IsNullOrEmpty(info) ? info : "No additional information available.",
-                    $"Help: {fn.Name}",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                // If it is a feature node, use the feature URL.
+                if (node.Tag is FeatureNode fn && fn.Feature != null)
+                    FeatureHelp.OpenUrl(FeatureHelp.GetFeatureUrl(fn.Feature));
+                else
+                    // Otherwise treat it as plugin title.
+                    FeatureHelp.OpenUrl(FeatureHelp.GetPluginUrl(node.Text));
 
-                // Optional online help
-                var result = MessageBox.Show(
-                    "Would you like to search online for more information about this feature?",
-                    "Online Help",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    string searchQuery = Uri.EscapeDataString(fn.Feature.GetFeatureDetails());
-                    string webUrl = $"https://www.google.com/search?q={searchQuery}";
-                    System.Diagnostics.Process.Start(new ProcessStartInfo
-                    {
-                        FileName = webUrl,
-                        UseShellExecute = true
-                    });
-                }
-
-                return;
+                return true;
             }
-
-            // Show help for plugins
-            if (!PluginManager.ShowHelp(node))
+            catch (Exception ex)
             {
-                MessageBox.Show("⚠️ No feature or plugin selected, or help info unavailable.",
+                MessageBox.Show(
+                    "Could not open online help.\n\nDetails: " + ex.Message,
                     "Help",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
+
+                return false;
             }
         }
     }

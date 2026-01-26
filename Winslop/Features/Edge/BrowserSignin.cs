@@ -18,7 +18,10 @@ namespace Settings.Edge
 
         public override string ID() => "Disable Browser sign in and sync services";
 
-        public override string Info() => "This setting controls whether a user can sign into Microsoft Edge with an account to use services such as sync and single sign on";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override Task<bool> CheckFeature()
         {

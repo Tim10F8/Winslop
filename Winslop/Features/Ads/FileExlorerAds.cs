@@ -21,9 +21,9 @@ namespace Settings.Ads
             return "Disable File Explorer Ads";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will disable ads in File Explorer.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

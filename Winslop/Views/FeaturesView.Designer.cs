@@ -49,39 +49,38 @@
             this.helpMarkedFeatureToolStripMenuItem});
             this.contextMenuStrip.Name = "contextManualMenu";
             this.contextMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip.Size = new System.Drawing.Size(119, 98);
+            this.contextMenuStrip.Size = new System.Drawing.Size(116, 98);
             // 
             // analyzeMarkedFeatureToolStripMenuItem
             // 
             this.analyzeMarkedFeatureToolStripMenuItem.Name = "analyzeMarkedFeatureToolStripMenuItem";
-            this.analyzeMarkedFeatureToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.analyzeMarkedFeatureToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.analyzeMarkedFeatureToolStripMenuItem.Text = "Analyze";
             this.analyzeMarkedFeatureToolStripMenuItem.Click += new System.EventHandler(this.analyzeMarkedFeatureToolStripMenuItem_Click);
             // 
             // fixMarkedFeatureToolStripMenuItem
             // 
             this.fixMarkedFeatureToolStripMenuItem.Name = "fixMarkedFeatureToolStripMenuItem";
-            this.fixMarkedFeatureToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.fixMarkedFeatureToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.fixMarkedFeatureToolStripMenuItem.Text = "Fix";
             this.fixMarkedFeatureToolStripMenuItem.Click += new System.EventHandler(this.fixMarkedFeatureToolStripMenuItem_Click);
             // 
             // restoreMarkedFeatureToolStripMenuItem
             // 
             this.restoreMarkedFeatureToolStripMenuItem.Name = "restoreMarkedFeatureToolStripMenuItem";
-            this.restoreMarkedFeatureToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.restoreMarkedFeatureToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.restoreMarkedFeatureToolStripMenuItem.Text = "Restore";
             this.restoreMarkedFeatureToolStripMenuItem.Click += new System.EventHandler(this.restoreMarkedFeatureToolStripMenuItem_Click);
             // 
             // seperatorToolStripMenuItem
             // 
             this.seperatorToolStripMenuItem.Name = "seperatorToolStripMenuItem";
-            this.seperatorToolStripMenuItem.Size = new System.Drawing.Size(115, 6);
+            this.seperatorToolStripMenuItem.Size = new System.Drawing.Size(112, 6);
             // 
             // helpMarkedFeatureToolStripMenuItem
             // 
             this.helpMarkedFeatureToolStripMenuItem.Name = "helpMarkedFeatureToolStripMenuItem";
-            this.helpMarkedFeatureToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.helpMarkedFeatureToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.helpMarkedFeatureToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.helpMarkedFeatureToolStripMenuItem.Text = "Help";
             this.helpMarkedFeatureToolStripMenuItem.Click += new System.EventHandler(this.helpMarkedFeatureToolStripMenuItem_Click);
             // 

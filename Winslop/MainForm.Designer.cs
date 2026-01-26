@@ -50,9 +50,13 @@
             this.toolStripMenuRestore = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuPlugins = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lblRightHeader = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.panelContainer.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -65,11 +69,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContainer.BackColor = System.Drawing.Color.Teal;
-            this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelContainer.Controls.Add(this.panelContent);
-            this.panelContainer.Location = new System.Drawing.Point(3, 40);
+            this.panelContainer.Location = new System.Drawing.Point(0, 40);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(480, 485);
+            this.panelContainer.Size = new System.Drawing.Size(432, 485);
             this.panelContainer.TabIndex = 198;
             // 
             // panelContent
@@ -86,7 +89,7 @@
             this.panelContent.Controls.Add(this.btnFix);
             this.panelContent.Location = new System.Drawing.Point(19, 20);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(442, 454);
+            this.panelContent.Size = new System.Drawing.Size(396, 456);
             this.panelContent.TabIndex = 205;
             // 
             // rtbLogger
@@ -96,12 +99,12 @@
             this.rtbLogger.BackColor = System.Drawing.Color.White;
             this.rtbLogger.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbLogger.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbLogger.Location = new System.Drawing.Point(7, 240);
+            this.rtbLogger.Location = new System.Drawing.Point(7, 242);
             this.rtbLogger.Name = "rtbLogger";
             this.rtbLogger.ReadOnly = true;
             this.rtbLogger.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.rtbLogger.ShowSelectionMargin = true;
-            this.rtbLogger.Size = new System.Drawing.Size(426, 142);
+            this.rtbLogger.Size = new System.Drawing.Size(380, 142);
             this.rtbLogger.TabIndex = 195;
             this.rtbLogger.TabStop = false;
             this.rtbLogger.Text = "";
@@ -116,9 +119,9 @@
             this.comboLogActions.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboLogActions.Font = new System.Drawing.Font("Segoe UI Variable Small Semilig", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboLogActions.FormattingEnabled = true;
-            this.comboLogActions.Location = new System.Drawing.Point(7, 388);
+            this.comboLogActions.Location = new System.Drawing.Point(7, 390);
             this.comboLogActions.Name = "comboLogActions";
-            this.comboLogActions.Size = new System.Drawing.Size(426, 24);
+            this.comboLogActions.Size = new System.Drawing.Size(380, 24);
             this.comboLogActions.TabIndex = 210;
             this.comboLogActions.TabStop = false;
             // 
@@ -128,11 +131,12 @@
             this.btnAnalyze.AutoEllipsis = true;
             this.btnAnalyze.BackColor = System.Drawing.Color.Transparent;
             this.btnAnalyze.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(208)))));
-            this.btnAnalyze.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
-            this.btnAnalyze.Location = new System.Drawing.Point(7, 418);
+            this.btnAnalyze.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnalyze.Location = new System.Drawing.Point(7, 420);
             this.btnAnalyze.Name = "btnAnalyze";
-            this.btnAnalyze.Size = new System.Drawing.Size(121, 29);
-            this.btnAnalyze.TabIndex = 1;
+            this.btnAnalyze.Size = new System.Drawing.Size(164, 29);
+            this.btnAnalyze.TabIndex = 10;
+            this.btnAnalyze.TabStop = false;
             this.btnAnalyze.Text = "&Inspect system";
             this.btnAnalyze.UseVisualStyleBackColor = false;
             this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
@@ -147,16 +151,16 @@
             this.tabControl.Controls.Add(this.Apps);
             this.tabControl.Controls.Add(this.Extensions);
             this.tabControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tabControl.Font = new System.Drawing.Font("Segoe UI Variable Display", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.HotTrack = true;
             this.tabControl.ItemSize = new System.Drawing.Size(68, 28);
             this.tabControl.Location = new System.Drawing.Point(7, 8);
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
+            this.tabControl.Padding = new System.Drawing.Point(9, 3);
             this.tabControl.SelectedIndex = 0;
             this.tabControl.ShowToolTips = true;
-            this.tabControl.Size = new System.Drawing.Size(426, 231);
-            this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tabControl.Size = new System.Drawing.Size(380, 233);
             this.tabControl.TabIndex = 199;
             this.tabControl.TabStop = false;
             // 
@@ -164,10 +168,11 @@
             // 
             this.Windows.AutoScroll = true;
             this.Windows.BackColor = System.Drawing.Color.White;
+            this.Windows.Cursor = System.Windows.Forms.Cursors.Default;
             this.Windows.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Windows.Location = new System.Drawing.Point(4, 32);
             this.Windows.Name = "Windows";
-            this.Windows.Size = new System.Drawing.Size(418, 195);
+            this.Windows.Size = new System.Drawing.Size(372, 197);
             this.Windows.TabIndex = 0;
             this.Windows.Text = "Windows";
             this.Windows.UseVisualStyleBackColor = true;
@@ -175,30 +180,33 @@
             // Apps
             // 
             this.Apps.BackColor = System.Drawing.SystemColors.Control;
+            this.Apps.Cursor = System.Windows.Forms.Cursors.Default;
             this.Apps.Location = new System.Drawing.Point(4, 32);
             this.Apps.Name = "Apps";
-            this.Apps.Size = new System.Drawing.Size(418, 195);
+            this.Apps.Size = new System.Drawing.Size(372, 197);
             this.Apps.TabIndex = 1;
-            this.Apps.Text = "Applications";
+            this.Apps.Text = "Apps";
             this.Apps.UseVisualStyleBackColor = true;
             // 
             // Extensions
             // 
+            this.Extensions.Cursor = System.Windows.Forms.Cursors.Default;
             this.Extensions.Location = new System.Drawing.Point(4, 32);
             this.Extensions.Name = "Extensions";
-            this.Extensions.Size = new System.Drawing.Size(418, 195);
+            this.Extensions.Size = new System.Drawing.Size(372, 197);
             this.Extensions.TabIndex = 2;
-            this.Extensions.Text = "Extensions";
+            this.Extensions.Text = "Tools";
             // 
             // btnFix
             // 
             this.btnFix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFix.AutoEllipsis = true;
+            this.btnFix.BackColor = System.Drawing.Color.Transparent;
             this.btnFix.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(208)))));
-            this.btnFix.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
-            this.btnFix.Location = new System.Drawing.Point(247, 418);
+            this.btnFix.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFix.Location = new System.Drawing.Point(223, 420);
             this.btnFix.Name = "btnFix";
-            this.btnFix.Size = new System.Drawing.Size(185, 29);
+            this.btnFix.Size = new System.Drawing.Size(164, 29);
             this.btnFix.TabIndex = 2;
             this.btnFix.TabStop = false;
             this.btnFix.Text = "Apply selected changes";
@@ -210,31 +218,33 @@
             this.btnMenu.BackColor = System.Drawing.Color.Transparent;
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.Font = new System.Drawing.Font("Segoe MDL2 Assets", 9.75F);
+            this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnMenu.ForeColor = System.Drawing.Color.Black;
+            this.btnMenu.Image = global::Winslop.Properties.Resources.AppLogo16;
+            this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenu.Location = new System.Drawing.Point(4, 10);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(35, 23);
-            this.btnMenu.TabIndex = 201;
+            this.btnMenu.Size = new System.Drawing.Size(61, 23);
+            this.btnMenu.TabIndex = 2;
             this.btnMenu.TabStop = false;
-            this.btnMenu.Text = "Menu";
+            this.btnMenu.Text = "Start";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip.SetToolTip(this.btnMenu, "Menu");
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // btnAbout
             // 
-            this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbout.AutoSize = true;
+            this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAbout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAbout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(170)))), ((int)(((byte)(210)))));
+            this.btnAbout.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.btnAbout.FlatAppearance.BorderSize = 0;
             this.btnAbout.Font = new System.Drawing.Font("Segoe MDL2 Assets", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbout.ForeColor = System.Drawing.Color.Crimson;
-            this.btnAbout.Location = new System.Drawing.Point(445, 10);
+            this.btnAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(81)))), ((int)(((byte)(225)))));
+            this.btnAbout.Location = new System.Drawing.Point(298, 526);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(34, 23);
-            this.btnAbout.TabIndex = 211;
+            this.btnAbout.TabIndex = 1;
             this.btnAbout.TabStop = false;
             this.btnAbout.Text = "...";
             this.toolTip.SetToolTip(this.btnAbout, "About this app");
@@ -251,53 +261,55 @@
             this.toolStripMenuRestore,
             this.toolStripMenuPlugins,
             this.toolStripSeparator3,
-            this.toolStripMenuAbout});
+            this.toolStripMenuHelp,
+            this.toolStripMenuAbout,
+            this.toolStripMenuUpdate});
             this.contextMenu.Name = "contextMenu";
             this.contextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenu.Size = new System.Drawing.Size(172, 154);
+            this.contextMenu.Size = new System.Drawing.Size(180, 198);
             // 
             // toolStripMenuToggle
             // 
             this.toolStripMenuToggle.Name = "toolStripMenuToggle";
-            this.toolStripMenuToggle.Size = new System.Drawing.Size(171, 22);
+            this.toolStripMenuToggle.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuToggle.Text = "Toggle all";
             this.toolStripMenuToggle.Click += new System.EventHandler(this.toolStripMenuSelection_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(168, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(176, 6);
             // 
             // toolStripMenuImport
             // 
             this.toolStripMenuImport.Name = "toolStripMenuImport";
-            this.toolStripMenuImport.Size = new System.Drawing.Size(171, 22);
+            this.toolStripMenuImport.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuImport.Text = "Import";
             this.toolStripMenuImport.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // toolStripMenuExport
             // 
             this.toolStripMenuExport.Name = "toolStripMenuExport";
-            this.toolStripMenuExport.Size = new System.Drawing.Size(171, 22);
+            this.toolStripMenuExport.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuExport.Text = "Export";
             this.toolStripMenuExport.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(168, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(176, 6);
             // 
             // toolStripMenuRestore
             // 
             this.toolStripMenuRestore.Name = "toolStripMenuRestore";
-            this.toolStripMenuRestore.Size = new System.Drawing.Size(171, 22);
+            this.toolStripMenuRestore.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuRestore.Text = "Undo last changes";
             this.toolStripMenuRestore.Click += new System.EventHandler(this.toolStripMenuRestore_Click);
             // 
             // toolStripMenuPlugins
             // 
             this.toolStripMenuPlugins.Name = "toolStripMenuPlugins";
-            this.toolStripMenuPlugins.Size = new System.Drawing.Size(171, 22);
+            this.toolStripMenuPlugins.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuPlugins.Tag = "Tools";
             this.toolStripMenuPlugins.Text = "Manage plugins...";
             this.toolStripMenuPlugins.Click += new System.EventHandler(this.toolStripMenuPlugins_Click);
@@ -305,40 +317,87 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(168, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(176, 6);
+            // 
+            // toolStripMenuHelp
+            // 
+            this.toolStripMenuHelp.Name = "toolStripMenuHelp";
+            this.toolStripMenuHelp.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuHelp.Tag = "Help";
+            this.toolStripMenuHelp.Text = "Help";
             // 
             // toolStripMenuAbout
             // 
-            this.toolStripMenuAbout.Enabled = false;
             this.toolStripMenuAbout.Name = "toolStripMenuAbout";
-            this.toolStripMenuAbout.Size = new System.Drawing.Size(171, 22);
-            this.toolStripMenuAbout.Tag = "About";
+            this.toolStripMenuAbout.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuAbout.Text = "About";
+            // 
+            // toolStripMenuUpdate
+            // 
+            this.toolStripMenuUpdate.Name = "toolStripMenuUpdate";
+            this.toolStripMenuUpdate.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuUpdate.Text = "Check for updates...";
             // 
             // textSearch
             // 
             this.textSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textSearch.Font = new System.Drawing.Font("Segoe UI Variable Small Semilig", 9.5F);
+            this.textSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
             this.textSearch.ForeColor = System.Drawing.Color.DimGray;
-            this.textSearch.Location = new System.Drawing.Point(141, 10);
+            this.textSearch.Location = new System.Drawing.Point(116, 12);
+            this.textSearch.Multiline = true;
             this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(222, 24);
+            this.textSearch.Size = new System.Drawing.Size(209, 20);
             this.textSearch.TabIndex = 520;
+            this.textSearch.TabStop = false;
             this.textSearch.Text = "Search";
             this.textSearch.Click += new System.EventHandler(this.textSearch_Click);
             this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
+            // 
+            // lblRightHeader
+            // 
+            this.lblRightHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRightHeader.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblRightHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRightHeader.Location = new System.Drawing.Point(296, 526);
+            this.lblRightHeader.Name = "lblRightHeader";
+            this.lblRightHeader.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.lblRightHeader.Size = new System.Drawing.Size(104, 23);
+            this.lblRightHeader.TabIndex = 521;
+            this.lblRightHeader.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip.SetToolTip(this.lblRightHeader, "Versioning information");
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
+            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefresh.Location = new System.Drawing.Point(367, 10);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(61, 23);
+            this.btnRefresh.TabIndex = 522;
+            this.btnRefresh.TabStop = false;
+            this.btnRefresh.Text = "Refresh";
+            this.toolTip.SetToolTip(this.btnRefresh, "Menu");
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.ClientSize = new System.Drawing.Size(484, 546);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(199)))), ((int)(((byte)(203)))));
+            this.ClientSize = new System.Drawing.Size(432, 546);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.textSearch);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.panelContainer);
+            this.Controls.Add(this.lblRightHeader);
             this.ForeColor = System.Drawing.Color.Black;
             this.MinimumSize = new System.Drawing.Size(400, 500);
             this.Name = "MainForm";
@@ -346,6 +405,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Winslop.exe";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.panelContainer.ResumeLayout(false);
             this.panelContent.ResumeLayout(false);
@@ -369,7 +429,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuRestore;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuPlugins;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuAbout;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuHelp;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuToggle;
         public System.Windows.Forms.RichTextBox rtbLogger;
         private System.Windows.Forms.ComboBox comboLogActions;
@@ -381,6 +441,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Label lblRightHeader;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuAbout;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuUpdate;
     }
 }
 

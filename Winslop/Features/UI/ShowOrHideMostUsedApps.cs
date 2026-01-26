@@ -21,11 +21,10 @@ namespace Settings.Personalization
             return "Hide Most used apps in start menu";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will hide Most used apps in start menu for all users";
+            return ID();
         }
-
         public override Task<bool> CheckFeature()
         {
             return Task.FromResult(

@@ -21,10 +21,11 @@ namespace Settings.AI
             return "Don't Show Copilot in Taskbar";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will disable Copilot in Taskbar.";
+            return ID();
         }
+
 
         public override Task<bool> CheckFeature()
         {

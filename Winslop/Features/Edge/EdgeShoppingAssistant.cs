@@ -18,7 +18,10 @@ namespace Settings.Edge
 
         public override string ID() => "Disable Shopping assistant";
 
-        public override string Info() => "Shopping in Microsoft Edge feature will automatically find you the best prices and coupons from across the web as you shop";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override Task<bool> CheckFeature()
         {

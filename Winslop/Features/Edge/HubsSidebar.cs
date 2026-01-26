@@ -17,8 +17,10 @@ namespace Settings.Edge
         }
 
         public override string ID() => "Disable Copilot Symbol in Edge";
-
-        public override string Info() => "This feature will disable Copilot in Microsoft Edge.";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override Task<bool> CheckFeature()
         {

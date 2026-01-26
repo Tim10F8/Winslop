@@ -1,12 +1,16 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Winslop.Views
 {
-    public partial class FeaturesView : UserControl, IMainActions, ISearchable
+    public partial class FeaturesView : UserControl, IMainActions, ISearchable, IView
     {
+        // Expose the TreeView so MainForm/LogActions can access it
+        public TreeView Tree => treeFeatures;
+
         /// <summary>
         /// FeatureView hosts the Windows feature/plugin tree and encapsulates all
         /// analyze/fix/restore actions for that tree.
@@ -52,7 +56,6 @@ namespace Winslop.Views
         /// </summary>
         public async Task FixAsync()
         {
-
             // Fix all checked features
             foreach (TreeNode node in treeFeatures.Nodes)
                 await FeatureNodeManager.FixChecked(node);
@@ -60,31 +63,6 @@ namespace Winslop.Views
             // Fix all checked plugins
             foreach (TreeNode node in treeFeatures.Nodes)
                 await PluginManager.FixChecked(node);
-        }
-
-        /// <summary>
-        /// Restore all checked features to original state (with confirmation).
-        /// You can call this from a menu item in MainForm if you want.
-        /// </summary>
-        public async Task RestoreCheckedWithConfirmation()
-        {
-            var result = MessageBox.Show(
-                "⚠️ This will restore all selected features to their original state.\n" +
-                "Changes made by previous configurations may be reverted.\n\n" +
-                "Are you sure you want to proceed?",
-                "Restore Selected Features",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
-
-            if (result != DialogResult.Yes)
-                return;
-
-            Logger.OutputBox?.Clear();
-
-            foreach (TreeNode node in treeFeatures.Nodes)
-                FeatureNodeManager.RestoreChecked(node);
-
-            Logger.Log("↩️ All selected features have been restored.", LogLevel.Info);
         }
 
         /// <summary>
@@ -293,6 +271,13 @@ namespace Winslop.Views
             return (selfMatch || clone.Nodes.Count > 0) ? clone : null;
         }
 
+        // ---------------- IView Interface ----------------
+        public void RefreshView()
+        {
+            InitializeAppState();
+            Logger.Clear();
+        }
+
         // ---------------- Import / Export ----------------
 
         public void ExportSelection(string filePath) => TreeSelectionTransferV1.ExportChecked(filePath, treeFeatures);
@@ -303,19 +288,66 @@ namespace Winslop.Views
             TreeSelectionTransferV1.ImportChecked(filePath, treeFeatures, clearFirst: true);
 
             // Return how many nodes are checked after import (for logging/UI feedback)
-            return CountCheckedNodes(treeFeatures.Nodes);
+            return CountCheckedLeafNodes(treeFeatures.Nodes);
         }
 
-        /// Counts checked nodes recursively in the tree
-        private int CountCheckedNodes(TreeNodeCollection nodes)
+        // Counts checked leaf nodes only (not category/root nodes)
+        private int CountCheckedLeafNodes(TreeNodeCollection nodes)
         {
             int count = 0;
+
             foreach (TreeNode n in nodes)
             {
-                if (n.Checked) count++;
-                if (n.Nodes.Count > 0) count += CountCheckedNodes(n.Nodes);
+                if (n.Nodes.Count == 0)
+                {
+                    // Leaf = actual feature/plugin
+                    if (n.Checked) count++;
+                }
+                else
+                {
+                    // Parent = category/group
+                    count += CountCheckedLeafNodes(n.Nodes);
+                }
             }
+
             return count;
+        }
+
+        /// <summary>
+        /// Restore all checked features to original state.
+        /// </summary>
+        public void RestoreSelection()
+        {
+            // Count how many nodes are currently checked
+            int checkedCount = CountCheckedLeafNodes(treeFeatures.Nodes);
+
+            if (checkedCount == 0)
+            {
+                MessageBox.Show(
+                    "No items are selected.\n\nPlease check one or more features/plugins in the tree first.",
+                    "Restore selection",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            var result = MessageBox.Show(
+                $"⚠️ This will restore ONLY the {checkedCount} selected (checked) item(s) to their original state.\n" +
+                "Any previous tweaks for those items may be reverted.\n\n" +
+                "Do you want to continue?",
+                "Restore selected items",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result != DialogResult.Yes)
+                return;
+
+            Logger.OutputBox?.Clear();
+
+            foreach (TreeNode node in treeFeatures.Nodes)
+                FeatureNodeManager.RestoreChecked(node);
+
+            Logger.Log($"↩️ Restored {checkedCount} selected item(s).", LogLevel.Info);
         }
     }
 }

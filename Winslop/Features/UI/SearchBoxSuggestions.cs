@@ -21,9 +21,9 @@ namespace Settings.UI
             return "Disable Search Box Suggestions";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature disables Bing search and web suggestions in the Windows Start Menu.";
+            return ID();
         }
 
         public override Task<bool> CheckFeature()

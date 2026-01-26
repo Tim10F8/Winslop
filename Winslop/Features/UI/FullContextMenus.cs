@@ -19,9 +19,9 @@ namespace Settings.Personalization
             return "Show Full context menus in Windows 11";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This feature will enable full context menus";
+            return keyName;
         }
 
         public override Task<bool> CheckFeature()

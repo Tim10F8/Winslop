@@ -22,10 +22,11 @@ namespace Settings.AI
             return "Turn off Recall in Windows 11";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "This will remove Recall from Windows 11 24H2";
+            return ID();
         }
+
 
         public override Task<bool> CheckFeature()
         {

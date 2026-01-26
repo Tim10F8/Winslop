@@ -9,7 +9,7 @@ namespace Winslop.Views
     /// <summary>
     /// AppsView encapsulates app scanning and uninstall logic for the Apps tab.
     /// </summary>
-    public partial class AppsView : UserControl, IMainActions, ISearchable
+    public partial class AppsView : UserControl, IMainActions, ISearchable, IView
     {
         // Keeps the full unfiltered app list for search reset/filtering
         private string[] _allApps = Array.Empty<string>();
@@ -80,7 +80,6 @@ namespace Winslop.Views
 
         /// <summary>
         /// Toggles all items in the app list (select all / select none).
-        /// Intended to be called by a shell menu item (e.g. "Selection").
         /// </summary>
         public void ToggleSelection()
         {
@@ -138,6 +137,13 @@ namespace Winslop.Views
         {
             // Apply search to apps list (empty query = reset)
             ApplyAppsFilter(query);
+        }
+
+        public void RefreshView()
+        {
+            // Re-analyze apps when refreshing the view
+            _ = AnalyzeAsync();
+            Logger.Clear();
         }
     }
 }

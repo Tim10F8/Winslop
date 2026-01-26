@@ -13,7 +13,10 @@ namespace Settings.Edge
 
         public override string ID() => "Disable Access to Collections feature";
 
-        public override string Info() => "Enables users to access the Collections feature, allowing them to gather, organize, share, and export content more efficiently with Office integration";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override string GetFeatureDetails()
         {

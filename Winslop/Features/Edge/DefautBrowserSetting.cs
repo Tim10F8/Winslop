@@ -18,7 +18,10 @@ namespace Settings.Edge
 
         public override string ID() => "Disable Microsoft Edge as default browser";
 
-        public override string Info() => "Force Edge to stop asking to change default browser";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override Task<bool> CheckFeature()
         {

@@ -21,10 +21,11 @@ namespace Settings.Gaming
             return "Disable Visual Effects";
         }
 
-        public override string Info()
+        public override string HelpAnchorId()
         {
-            return "Turns off visual effects like animations and shadows in Windows to boost performance.";
+            return ID();
         }
+
 
         public override Task<bool> CheckFeature()
         {

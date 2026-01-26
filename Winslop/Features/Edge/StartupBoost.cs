@@ -18,7 +18,10 @@ namespace Settings.Edge
 
         public override string ID() => "Disable Start Boost";
 
-        public override string Info() => "Enables Microsoft Edge processes to initialize at operating system startup and restart in the background after the last browser window has been closed";
+        public override string HelpAnchorId()
+        {
+            return ID();
+        }
 
         public override Task<bool> CheckFeature()
         {
