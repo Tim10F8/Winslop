@@ -11,6 +11,9 @@
 - [AI (Copilot & Recall)](#ai-copilot--recall)
 - [Plugins](#plugins)
 
+> Want to create your own plugin?  
+> See: **[How to create plugins](https://github.com/builtbybel/Winslop/blob/main/docs/plugins.md)**.
+
 ---
 
 ## Issues & Maintenance
@@ -149,7 +152,7 @@
 **Recommended:** `0`  
 **Undo:** `1`  
 
-### Don't Allow to Import of data from other browsers on each launch
+### Don't import data from other browsers at startup
 **Info:** Disables importing of browser data from other browsers on each launch.  
 **Registry:** `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Edge`  
 **Value:** `ImportOnEachLaunch`  
@@ -169,7 +172,6 @@
 **Value:** `NewTabPageQuickLinksEnabled`  
 **Recommended:** `0`  
 **Undo:** `1`  
-:contentReference[oaicite:0]{index=0}
 
 ### Don't Submit user feedback option
 **Info:** Disables the “Submit feedback” option in Microsoft Edge.  
@@ -177,8 +179,6 @@
 **Value:** `UserFeedbackAllowed`  
 **Recommended:** `0`  
 **Undo:** `1`  
-:contentReference[oaicite:1]{index=1}
-
 
 ## UI & Personalization
 
@@ -428,7 +428,8 @@
 
 ---
 
-## Plugins
+## Plugins <a name="plugins"></a>
+
 
 > Plugins are PowerShell scripts that run additional tweaks or external tools.
 > Some plugins require Administrator privileges.

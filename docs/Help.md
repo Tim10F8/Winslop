@@ -1,3 +1,12 @@
+> Looking for detailed descriptions of every toggle / tweak?
+> See the full **Feature Reference** here: **[features.md](features.md)**  
+> (Includes registry keys, value names, recommended values, undo values, and plugin notes.)
+
+Quick links:
+- Feature Reference: [features.md](features.md)
+- Plugins section in Feature Reference: [plugins](https://github.com/builtbybel/Winslop/blob/main/docs/features.md#plugins)
+- Extensions Reference: [extensions.md](extensions.md)
+
 ## Quick start
 
 1. Open **Winslop.exe**
@@ -13,6 +22,8 @@
 ---
 
 ## UI overview
+
+<img width="1031" height="880" alt="Winslop_annotated_outside_EN_v3" src="https://github.com/user-attachments/assets/f661f0ee-b87b-401e-9121-f48addc38fe3" />
 
 ### Top bar
 - **Menu button (☰)**  
@@ -52,7 +63,7 @@ Right-click any node in the **Windows** feature tree to open the context menu:
   Reverts the selected node back to its original/default state (if supported).  
   For plugins, this uses the plugin’s undo/restore command when available.
 
-- **Help (F1)**  
+- **Help**  
   Shows help/details for the selected node (what it does and any notes/warnings).
 
 
