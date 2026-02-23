@@ -1,3 +1,7 @@
+> **Note:**  
+> "winslop" might refer to Windows 11 in some corners of the internet.  
+> **Winslop**, however, is an actual tool designed to clean it up.
+> 
 # Built to remove things. Not to impress you.
 
 > *“We need to get beyond the arguments of slop vs sophistication…”*  
