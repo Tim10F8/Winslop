@@ -5,6 +5,7 @@
 - [System](#system)
 - [Microsoft Edge](#microsoft-edge)
 - [UI & Personalization](#ui--personalization)
+- [Taskbar](#taskbar)
 - [Gaming](#gaming)
 - [Privacy & Telemetry](#privacy--telemetry)
 - [Ads & Recommendations](#ads--recommendations)
@@ -84,13 +85,6 @@
 **Registry 2:** `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings` → `ShowHibernateOption = 0`  
 **Command:** `powercfg /hibernate off`  
 **Undo:** `HibernateEnabled = 1`, `ShowHibernateOption = 1`, `powercfg /hibernate on`
-
-### Enable End Task
-**Info:** Adds 'End Task' to the Windows 11 taskbar context menu, allowing you to directly kill unresponsive apps.  
-**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings`  
-**Value:** `TaskbarEndTask`  
-**Recommended:** `1`  
-**Undo:** `0`
 
 ---
 
@@ -195,13 +189,6 @@
 **DoFeature sets:** `1`  
 **Undo:** `0`
 
-### Hide search box on taskbar
-**Info:** This feature will hide search box on taskbar  
-**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search`  
-**Value:** `SearchboxTaskbarMode`  
-**Recommended:** `0`  
-**Undo:** `2`
-
 ### Hide Most used apps in start menu
 **Info:** This feature will hide Most used apps in start menu for all users  
 **Registry:** `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer`  
@@ -209,24 +196,10 @@
 **Recommended:** `2`  
 **Undo:** `1`
 
-### Hide Task view button on taskbar
-**Info:** This feature will hide the Task view button on taskbar  
-**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced`  
-**Value:** `ShowTaskViewButton`  
-**Recommended:** `0`  
-**Undo:** `1`
-
 ### Disable Bing Search
 **Info:** This feature disables Bing integration in Windows Search.  
 **Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search`  
 **Value:** `BingSearchEnabled`  
-**Recommended:** `0`  
-**Undo:** `1`
-
-### Align Start button to left
-**Info:** This feature will align the Start button to left  
-**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced`  
-**Value:** `TaskbarAl`  
 **Recommended:** `0`  
 **Undo:** `1`
 
@@ -264,6 +237,82 @@
 **Value:** `EnableSnapAssistFlyout`  
 **Recommended:** `0`  
 **Undo:** `1`
+
+---
+
+## Taskbar
+
+### Align Start button to left
+**Info:** Aligns the Start button to the left side of the taskbar (Windows 11).  
+**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced`  
+**Value:** `TaskbarAl`  
+**Recommended:** `0`  
+**Undo:** `1`
+
+### Hide search box on taskbar
+**Info:** Hides the search box / search entry on the taskbar.  
+**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search`  
+**Value:** `SearchboxTaskbarMode`  
+**Recommended:** `0`  
+**Undo:** `2`
+
+### Hide Task view button on taskbar
+**Info:** Hides the Task View button on the taskbar.  
+**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced`  
+**Value:** `ShowTaskViewButton`  
+**Recommended:** `0`  
+**Undo:** `1`
+
+### Enable End Task
+**Info:** Adds “End Task” to the Windows 11 taskbar context menu to quickly kill unresponsive apps.  
+**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings`  
+**Value:** `TaskbarEndTask`  
+**Recommended:** `1`  
+**Undo:** `0`
+
+### Make taskbar small
+**Info:** Enables small taskbar icons (more compact taskbar).  
+**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced`  
+**Value:** `TaskbarSmallIcons`  
+**Recommended:** `1`  
+**Undo:** `0`
+
+### Always show all system tray icons
+**Info:** Shows all notification area (system tray) icons instead of hiding some behind the overflow menu.  
+**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer`  
+**Value:** `EnableAutoTray`  
+**Recommended:** `0`  
+**Undo:** `1`
+
+### Remove 'Meet Now' button from system tray
+**Info:** Removes the “Meet Now” button from the notification area / system tray.  
+**Registry:** `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer`  
+**Value:** `HideSCAMeetNow`  
+**Recommended:** `1`  
+**Undo:** `0`
+
+### Show Widgets
+**Info:** Enables the Widgets button / Widgets experience on the taskbar (policy based).  
+**Registry (CU):** `HKEY_CURRENT_USER\Software\Policies\Microsoft\Dsh`  
+**Registry (LM):** `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Dsh`  
+**Value:** `AllowNewsAndInterests`  
+**Recommended:** `1`  
+**Undo:** `0`
+
+### Disable News and Interests
+**Info:** Disables “News and Interests” / Feeds integration via policy (may affect widgets/feeds depending on Windows version).  
+**Registry (CU):** `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Windows Feeds`  
+**Registry (LM):** `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Windows Feeds`  
+**Value:** `EnableFeeds`  
+**Recommended:** `0`  
+**Undo:** `1`
+
+### Clean Taskbar
+**Info:** Clears pinned taskbar items by emptying the Taskband “Favorites” value and restarts Explorer.  
+**Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband`  
+**Value:** `Favorites` (REG_BINARY)  
+**Action:** Set to empty byte array, then restart Explorer  
+**Undo:** Not supported (pin layout cannot be reliably restored)
 
 ---
 
